@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ask_a_Fellow</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
 </resources>
