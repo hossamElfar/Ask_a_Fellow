@@ -50,8 +50,8 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.AnswerVi
 
         public AnswerViewHolder(View v) {
             super(v);
-            mItemDescription = (TextView) v.findViewById(R.id.person_age);
-            vote_up = (IconicsButton) v.findViewById(R.id.vote_up);
+            mItemDescription = (TextView) v.findViewById(R.id.answer_description);
+//            vote_up = (IconicsButton) v.findViewById(R.id.vote_up);
             v.setOnClickListener(this);
         }
 
