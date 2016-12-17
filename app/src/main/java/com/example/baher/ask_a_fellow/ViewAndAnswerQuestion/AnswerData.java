@@ -11,7 +11,10 @@ import com.google.gson.annotations.SerializedName;
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-class AnswerData {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+public class AnswerData {
 
     @SerializedName("id")
     @Expose
@@ -34,6 +37,9 @@ class AnswerData {
     @SerializedName("votes")
     @Expose
     private int votes;
+    @SerializedName("responder")
+    @Expose
+    private AnswerResponder responder;
 
     public int getId() {
         return id;
@@ -91,6 +97,14 @@ class AnswerData {
         this.votes = votes;
     }
 
+    public AnswerResponder getResponder() {
+        return responder;
+    }
+
+    public void setResponder(AnswerResponder responder) {
+        this.responder = responder;
+    }
+
     @Override
     public String toString() {
         return "AnswerData{" +
@@ -101,7 +115,7 @@ class AnswerData {
                 ", createdAt='" + createdAt + '\'' +
                 ", updatedAt='" + updatedAt + '\'' +
                 ", votes=" + votes +
+                ", responder=" + responder +
                 '}';
     }
 }
-

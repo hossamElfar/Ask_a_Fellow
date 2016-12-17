@@ -30,7 +30,7 @@ public class ViewAnswersAcitivity extends AppCompatActivity {
     private AnswersAdapter answersAdapter;
     public static final String BASE_URL = "http://172.16.0.72/ask-a-fellow-laravel/public/api/v1/";
     public APIEndPointInterface apiService;
-    public ArrayList<Answer> answersArrayList;
+    public  ArrayList<Answer> answersArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,19 @@ public class ViewAnswersAcitivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_answers_acitivity);
         answersRecyclerView = (RecyclerView)findViewById(R.id.answersRecyclerView);
         linearLayoutManager = new LinearLayoutManager(this);
+
+        ArrayList<Answer> a = new ArrayList<>();
+        a.add(new Answer("!Hello!"));
+        a.add(new Answer("!Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +
+                "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
+                "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n" +
+                "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n" +
+                "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n" +
+                "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.!"));
+
+        answersAdapter = new AnswersAdapter(a);
+
+        answersRecyclerView.setAdapter(answersAdapter);
         answersRecyclerView.setLayoutManager(linearLayoutManager);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -51,7 +64,8 @@ public class ViewAnswersAcitivity extends AppCompatActivity {
         call.enqueue(new Callback<AnswerPOJO>() {
             @Override
             public void onResponse(Response<AnswerPOJO> response, Retrofit retrofit) {
-                Log.d("HelloWorld", Arrays.toString(response.body().getData().toArray()));
+                answersArrayList = new ArrayList<>();
+
                 for(AnswerData ans : response.body().getData()){
                     answersArrayList.add(new Answer(ans.getAnswer()));
                 }

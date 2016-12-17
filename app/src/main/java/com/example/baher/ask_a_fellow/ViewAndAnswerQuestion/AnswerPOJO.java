@@ -12,7 +12,6 @@
 package com.example.baher.ask_a_fellow.ViewAndAnswerQuestion;
 
 import java.util.List;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -40,6 +39,5 @@ public class AnswerPOJO {
     public void setData(List<AnswerData> data) {
         this.data = data;
     }
-
 
 }
